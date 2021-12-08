@@ -1,0 +1,17 @@
+name: manually-trigger
+on: workflow_dispatch
+  inputs:
+    node_version:
+      description: 'Nodejs version'
+      required: true
+      default: 15
+jobs:
+  say-hello-with-env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup Node 
+        uses: actions/setup-node@v2
+          with:
+            node-version: ${{ github.event.inputs.node_version }}
+      - name: Testing setup
+        run: node --version
