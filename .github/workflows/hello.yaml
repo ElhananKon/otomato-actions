@@ -5,6 +5,10 @@ jobs: # list of jobs
     runs-on: ubuntu-latest
     steps: #list of steps
       - run: echo Hello Github Actions #step definition
-      - uses: actions/checkout@v2 # <- Add this line!!!
+        name: echo step
+      - name: checkout step
+        uses: actions/checkout@v2 # <- Add this line!!!
       - run: pwd #where are we?
+        name: get path step
       - run: ls -la #let's look around
+        name: look around step
